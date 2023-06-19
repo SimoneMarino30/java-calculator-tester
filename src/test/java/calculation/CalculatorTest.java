@@ -8,26 +8,48 @@ import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
     //ATTRIBUTES
-    Calculator calculator;
+    private Calculator calculator;
+
+    // prima di ogni test inizializzo Calculator
     @BeforeEach
     void init() {
         // System.out.print("Before each test");
-        // prima di ogni test inizializzo Calculator
         calculator = new Calculator();
     }
+
+    //-------------------------------------ADDITION---------------------------------------
+
     @Test
-    @DisplayName("Test addition")
-    void add() {
+    @DisplayName("Test addition positive")
+    void addPositive() {
         float result = calculator.add(6.0f, 4.0f);
         assertEquals(10.0f, result, "The addition's result must be 10");
     }
 
     @Test
-    @DisplayName("Test subtraction")
-    void subtract() {
+    @DisplayName("Test addition negative")
+    void addNegative() {
+        float result = calculator.add(-6.0f, -4.0f);
+        assertEquals(-10.0f, result, "The addition's result must be -10");
+    }
+
+    //-------------------------------------SUBTRACTION--------------------------------------
+
+    @Test
+    @DisplayName("Test subtraction positive")
+    void subtractPositive() {
         float result = calculator.subtract(6.0f, 4.0f);
         assertEquals(2.0f, result, "The subtraction's result must be 2");
     }
+
+    @Test
+    @DisplayName("Test subtraction negative")
+    void subtractNegative() {
+        float result = calculator.subtract(-6.0f, -4.0f);
+        assertEquals(-2.0f, result, "The subtraction's result must be -2");
+    }
+
+    //-------------------------------------DIVISION----------------------------------------
 
     @Test
     @DisplayName("Test division")
@@ -42,10 +64,19 @@ class CalculatorTest {
                 () -> calculator.divide(10.0f, 0.0f));
     }
 
+    //-------------------------------------MULTIPLICATION-------------------------------------
+
     @Test
-    @DisplayName("Test multiplication")
-    void multiply() {
+    @DisplayName("Test multiplication positive")
+    void multiplyPositive() {
         float result = calculator.multiply(6.0f, 4.0f);
+        assertEquals(24.0f, result, "The multiplication's result must be 24");
+    }
+
+    @Test
+    @DisplayName("Test multiplication negative")
+    void multiplyNegative() {
+        float result = calculator.multiply(-6.0f, -4.0f);
         assertEquals(24.0f, result, "The multiplication's result must be 24");
     }
 }
