@@ -11,8 +11,8 @@ public class Calculator {
     }
 
     public float divide(float num1, float num2) {
-        if(num2 == 0) {
-            throw new IllegalArgumentException("The second value must be a number different from 0");
+        if(num2 <= 0) {
+            throw new IllegalArgumentException("The second value must be a number greater than 0");
         }
         return num1 / num2;
     }

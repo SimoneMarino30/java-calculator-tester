@@ -60,8 +60,17 @@ class CalculatorTest {
     @Test
     @DisplayName("Test division for 0")
     void divideForZero() {
+        //Solleva IllegalArgumentException divisione per zero
         assertThrows(IllegalArgumentException.class,
                 () -> calculator.divide(10.0f, 0.0f));
+    }
+
+    @Test
+    @DisplayName("Test division negative")
+    void divideNegative() {
+        //Solleva IllegalArgumentException divisione per numero negativo
+        assertThrows(IllegalArgumentException.class,
+                () -> calculator.divide(10.0f, -2.0f));
     }
 
     //-------------------------------------MULTIPLICATION-------------------------------------
